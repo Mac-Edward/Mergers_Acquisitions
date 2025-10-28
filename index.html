@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Silicon Valley M&A Advisor | Unlock Market Opportunities</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #00bfff;
+  --secondary: #8a2be2;
+  --bg-dark: #0b0f17;
+  --card-bg: rgba(255,255,255,0.06);
+  --text-light: #f4f7fb;
+  --shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+html { scroll-behavior:smooth; }
+body {
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:radial-gradient(circle at 25% 25%,#0e1423 0%,#090d14 100%);
+  color:var(--text-light);
+  overflow-x:hidden;
+  line-height:1.6;
+}
+
+/* Navigation */
+nav {
+  position:fixed;top:0;left:0;width:100%;
+  background:rgba(15,20,30,0.8);
+  backdrop-filter:blur(12px);
+  z-index:1000;
+  box-shadow:var(--shadow);
+  transition:background 0.3s ease;
+}
+nav ul {
+  display:flex;
+  justify-content:center;
+  gap:2rem;
+  padding:1rem 0;
+  margin:0;
+  list-style:none;
+}
+nav ul li a {
+  font-weight:600;
+  color:var(--text-light);
+  transition:color 0.3s;
+}
+nav ul li a:hover { color:var(--primary); }
+
+/* Hero */
+header.hero {
+  min-height:90vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:0 1rem;
+  background:linear-gradient(180deg,rgba(15,30,50,0.6) 0%,rgba(5,10,20,0.95) 100%),
+             url('https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1950&q=80') center/cover;
+  position:relative;
+}
+header.hero h1 {
+  font-size:3rem;
+  font-weight:700;
+  background:linear-gradient(90deg,var(--primary),var(--secondary));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  opacity:0;
+  animation:fadeUp 1s forwards 0.3s;
+}
+header.hero p {
+  font-size:1.2rem;
+  opacity:0;
+  animation:fadeUp 1s forwards 0.6s;
+}
+@keyframes fadeUp { to{opacity:1;transform:translateY(0);} }
+.btn-primary {
+  margin-top:2rem;
+  padding:1rem 2rem;
+  background:linear-gradient(90deg,var(--primary),var(--secondary));
+  border:none;
+  color:#fff;
+  border-radius:8px;
+  font-weight:600;
+  cursor:pointer;
+  box-shadow:0 0 15px rgba(0,191,255,0.4);
+  transition:transform 0.3s, box-shadow 0.3s;
+}
+.btn-primary:hover {
+  transform:translateY(-3px) scale(1.02);
+  box-shadow:0 0 25px rgba(0,191,255,0.8);
+}
+
+/* Sections */
+section {
+  max-width:1100px;
+  margin:0 auto;
+  padding:6rem 1rem;
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 1s ease-out;
+}
+section.visible { opacity:1; transform:translateY(0); }
+section h2 {
+  text-align:center;
+  font-size:2rem;
+  margin-bottom:1.5rem;
+  background:linear-gradient(90deg,var(--primary),var(--secondary));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+section p, section li { font-size:1.05rem; color:#ccd3e6; }
+
+/* Card grid */
+.card-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:2rem;
+  margin-top:3rem;
+}
+.card {
+  background:var(--card-bg);
+  border-radius:12px;
+  padding:2rem;
+  box-shadow:0 5px 20px rgba(0,0,0,0.3);
+  transition:transform 0.4s, box-shadow 0.4s;
+  perspective:800px;
+}
+.card:hover {
+  transform:perspective(800px) rotateY(8deg) rotateX(4deg) scale(1.02);
+  box-shadow:0 8px 25px rgba(0,191,255,0.3);
+}
+
+/* Counters */
+.stats {
+  display:flex;
+  justify-content:space-around;
+  margin-top:3rem;
+  flex-wrap:wrap;
+  gap:2rem;
+}
+.counter {
+  font-size:2rem;
+  font-weight:700;
+  color:var(--primary);
+}
+
+/* CTA */
+.cta {
+  text-align:center;
+  padding:6rem 1rem;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:#fff;
+}
+.cta h2 {font-size:2rem;}
+.cta p {font-size:1.2rem;margin-top:1rem;}
+.cta .btn-primary {background:#fff;color:#000;box-shadow:none;}
+.cta .btn-primary:hover {background:var(--bg-dark);color:#fff;}
+
+/* Footer */
+footer {
+  text-align:center;
+  padding:2rem 1rem;
+  color:#999;
+  background:#080c13;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  header.hero h1{font-size:2.2rem;}
+  .stats{flex-direction:column;align-items:center;}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <ul>
+    <li><a href="#why-work">Why Work With Me</a></li>
+    <li><a href="#buyers">Buyers</a></li>
+    <li><a href="#sellers">Sellers</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <h1>Unlock Market Opportunities &amp; Maximize Business Value</h1>
+  <p>Silicon Valley’s Premier M&amp;A Advisory Platform</p>
+  <button class="btn-primary" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
+    Schedule a Confidential Consultation
+  </button>
+</header>
+
+<main>
+  <section id="why-work">
+    <h2>Why Work With Me</h2>
+    <p>Gain early visibility into off-market opportunities through a trusted nationwide network, acting before listings go public. My proprietary research and intelligence give you unmatched deal access and decision power.</p>
+    <div class="stats">
+      <div><div class="counter" data-target="3000">0</div><p>Listings Analyzed Weekly</p></div>
+      <div><div class="counter" data-target="500">0</div><p>Advisor & Broker Contacts</p></div>
+      <div><div class="counter" data-target="100">0</div><p>Pre-Market Deals Sourced</p></div>
+    </div>
+  </section>
+
+  <section id="buyers">
+    <h2>For Buyers</h2>
+    <div class="card-grid">
+      <div class="card"><h3>Exclusive Access</h3><p>Act on deals before they reach the open market.</p></div>
+      <div class="card"><h3>Targeted Matching</h3><p>We filter thousands of listings to your exact acquisition provisions.</p></div>
+      <div class="card"><h3>Strategic Insights</h3><p>Data-driven intelligence to support negotiation and valuation.</p></div>
+    </div>
+  </section>
+
+  <section id="sellers">
+    <h2>For Sellers</h2>
+    <div class="card-grid">
+      <div class="card"><h3>Qualified Buyers</h3><p>Connect with pre-vetted, financially capable acquirers.</p></div>
+      <div class="card"><h3>Confidential Marketing</h3><p>Discreet outreach ensures operational and reputational safety.</p></div>
+      <div class="card"><h3>Value Optimization</h3><p>Leverage analytics to achieve top valuation and terms.</p></div>
+    </div>
+  </section>
+
+  <section id="process">
+    <h2>My Process</h2>
+    <ol>
+      <li>Discovery & Criteria Assessment</li>
+      <li>Data-Driven Sourcing</li>
+      <li>Proprietary Filtering</li>
+      <li>Confidential Outreach</li>
+      <li>Negotiation & Closing Support</li>
+    </ol>
+  </section>
+
+  <section class="cta">
+    <h2>Ready to Unlock Your Next Opportunity?</h2>
+    <p>Access pre-market deals, maximize your business value, and gain insights that put you ahead.</p>
+    <button class="btn-primary" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Get Started</button>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p><strong>Your Name</strong><br>
+       Your Company Name<br>
+       📧 <a href="mailto:your@email.com">your@email.com</a><br>
+       📞 Your Phone Number<br>
+       🌐 <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn Profile</a></p>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Your Company Name. All rights reserved.
+</footer>
+
+<script>
+// Scroll fade-in
+const sections=document.querySelectorAll('section');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.15});
+sections.forEach(s=>observer.observe(s));
+
+// Counters
+const counters=document.querySelectorAll('.counter');
+const runCounter=(el)=>{
+  const target=+el.dataset.target;
+  const step=Math.ceil(target/100);
+  let count=0;
+  const update=()=>{count+=step;el.textContent=count>target?target:count;if(count<target)requestAnimationFrame(update);}
+  update();
+};
+const counterObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){runCounter(e.target);counterObs.unobserve(e.target);}
+  });
+},{threshold:0.4});
+counters.forEach(c=>counterObs.observe(c));
+</script>
+</body>
+</html>
