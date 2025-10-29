@@ -231,7 +231,8 @@ footer {
   <h2>Our Platform Overview</h2>
   <div class="video-container">
     <iframe 
-      src="https://player.vimeo.com/video/1131569443?autoplay=0&muted=0&loop=0"
+      id="promoVideo"
+      src="https://player.vimeo.com/video/1131569443?autoplay=1&loop=1&muted=0&background=0"
       frameborder="0"
       allow="autoplay; fullscreen; picture-in-picture"
       allowfullscreen
@@ -239,6 +240,7 @@ footer {
     </iframe>
   </div>
 </section>
+
 
   
 <main>
@@ -325,5 +327,17 @@ const counterObs=new IntersectionObserver(entries=>{
 },{threshold:0.4});
 counters.forEach(c=>counterObs.observe(c));
 </script>
+  <script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+  const iframe = document.getElementById('promoVideo');
+  const player = new Vimeo.Player(iframe);
+
+  // When the video finishes once, mute it for the next loops
+  player.on('ended', function() {
+    player.setVolume(0);
+    player.play(); // start the loop again muted
+  });
+</script>
+
 </body>
 </html>
