@@ -38,6 +38,69 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* ===== OUR LISTINGS VIDEO CAROUSEL ===== */
+#our-listings {
+  text-align: center;
+  padding: 6rem 1rem;
+}
+
+#our-listings h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.carousel {
+  position: relative;
+  max-width: 900px;
+  margin: 3rem auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.video-slide {
+  min-width: 100%;
+  transition: opacity 0.5s ease;
+}
+
+.video-slide iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+  display: block;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,191,255,0.2);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+  backdrop-filter: blur(6px);
+  transition: background 0.3s;
+}
+
+.carousel-btn:hover {
+  background: rgba(0,191,255,0.5);
+}
+
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+
+  
 :root {
   --primary: #00bfff;
   --secondary: #8a2be2;
@@ -232,6 +295,7 @@ footer {
     <li><a href="#buyers">Buyers</a></li>
     <li><a href="#sellers">Sellers</a></li>
     <li><a href="#process">Process</a></li>
+    <li><a href="#our-listings">Listings</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -343,6 +407,41 @@ footer {
     </ol>
   </section>
 
+
+<section id="our-listings">
+  <h2>Our Listings</h2>
+  <p style="text-align:center;max-width:700px;margin:0 auto 2rem;">
+    Explore a curated showcase of active and recently closed opportunities from across the U.S. — representing strategic acquisitions, private equity roll-ups, and founder-led exits.
+  </p>
+
+  <div class="carousel">
+    <button class="carousel-btn prev">‹</button>
+
+    <div class="carousel-track">
+      <div class="video-slide active">
+        <iframe 
+          src="https://player.vimeo.com/video/1131569443"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen
+          title="Technology Firm Acquisition">
+        </iframe>
+      </div>
+      <div class="video-slide">
+        <iframe 
+          src="https://player.vimeo.com/video/1039607570"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen
+          title="Healthcare Roll-Up Opportunity">
+        </iframe>
+      </div>
+      <div class="video-slide">
+        <iframe 
+          src="https://player.vimeo.com/video/990223115"
+          frameborder="0"
+
+  
   <section class="cta">
     <h2>Ready to Unlock Your Next Opportunity?</h2>
     <p>Access pre-market deals, maximize your business value, and gain insights that put you ahead.</p>
@@ -400,6 +499,39 @@ counters.forEach(c=>counterObs.observe(c));
   });
 </script>
 
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+  const listingIframes = document.querySelectorAll('#our-listings .video-slide iframe');
+  const listingPlayers = Array.from(listingIframes).map(i => new Vimeo.Player(i));
+
+  const track = document.querySelector('#our-listings .carousel-track');
+  const nextBtn = document.querySelector('#our-listings .carousel-btn.next');
+  const prevBtn = document.querySelector('#our-listings .carousel-btn.prev');
+  let currentIndex = 0;
+
+  function updateCarousel(index) {
+    const slideWidth = listingIframes[0].clientWidth;
+    track.style.transform = `translateX(-${slideWidth * index}px)`;
+
+    // Pause all other videos except active
+    listingPlayers.forEach((p, i) => {
+      if (i === index) p.play();
+      else p.pause();
+    });
+  }
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % listingIframes.length;
+    updateCarousel(currentIndex);
+  });
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + listingIframes.length) % listingIframes.length;
+    updateCarousel(currentIndex);
+  });
+</script>
+          
   
 </body>
 </html>
