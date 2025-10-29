@@ -165,7 +165,24 @@ section p, section li { font-size:1.05rem; color:#ccd3e6; }
   transform:perspective(800px) rotateY(8deg) rotateX(4deg) scale(1.02);
   box-shadow:0 8px 25px rgba(0,191,255,0.3);
 }
+.card .more-info {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  color: #bcd2f5;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  line-height: 1.5;
+}
 
+.card:hover .more-info {
+  opacity: 1;
+  max-height: 500px; /* large enough to show full text */
+}
+
+
+  
 /* Counters */
 .stats {
   display:flex;
@@ -266,7 +283,14 @@ footer {
   <section id="sellers">
     <h2>For Sellers</h2>
     <div class="card-grid">
-      <div class="card"><h3>Qualified Buyers</h3><p>Connect with pre-vetted, financially capable acquirers.</p></div>
+      <div class="card">
+  <h3>Qualified Buyers</h3>
+  <p>Connect with pre-vetted, financially capable acquirers.</p>
+  <div class="more-info">
+    <p>We maintain a curated database of strategic and financial acquirers actively seeking M&A opportunities. Gain instant access to buyers aligned with your business size, sector, and goals.</p>
+  </div>
+</div>
+
       <div class="card"><h3>Confidential Marketing</h3><p>Discreet outreach ensures operational and reputational safety.</p></div>
       <div class="card"><h3>Value Optimization</h3><p>Leverage analytics to achieve top valuation and terms.</p></div>
     </div>
