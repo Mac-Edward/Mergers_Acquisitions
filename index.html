@@ -144,6 +144,71 @@ nav ul li a {
 }
 nav ul li a:hover { color:var(--primary); }
 
+/* === Responsive Nav === */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--text-light);
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Default desktop nav (unchanged) */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 1rem 0;
+}
+
+/* --- MOBILE STYLES --- */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* show hamburger */
+  }
+
+  .nav-links {
+    display: none; /* hide menu by default */
+    flex-direction: column;
+    align-items: center;
+    background: rgba(10, 15, 25, 0.95);
+    position: absolute;
+    top: 60px; /* below navbar */
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 999;
+  }
+
+  .nav-links.show {
+    display: flex; /* show menu when toggled */
+  }
+
+  .nav-links li a {
+    font-size: 1.2rem;
+    padding: 0.75rem 0;
+  }
+}
+
+  
 /* Hero */
 header.hero {
   min-height:90vh;
@@ -290,15 +355,20 @@ footer {
 <body>
 
 <nav id="nav">
-  <ul>
-    <li><a href="#why-work">Services</a></li>
-    <li><a href="#buyers">Buyers</a></li>
-    <li><a href="#sellers">Sellers</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#our-listings">Listings</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+  <div class="nav-container">
+    <div class="logo">Mac & Edward</div>
+    <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="#why-work">Services</a></li>
+      <li><a href="#buyers">Buyers</a></li>
+      <li><a href="#sellers">Sellers</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#our-listings">Listings</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
 </nav>
+
 
 <header class="hero">
   <h1>Unlock Market Opportunities &amp; Maximize Business Value</h1>
@@ -552,6 +622,19 @@ counters.forEach(c=>counterObs.observe(c));
   prevBtn.addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + listingIframes.length) % listingIframes.length;
     updateCarousel(currentIndex);
+  });
+</script>
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+
+  // Optional: close menu when a link is clicked
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => navLinks.classList.remove('show'));
   });
 </script>
           
