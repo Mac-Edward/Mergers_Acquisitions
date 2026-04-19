@@ -1,667 +1,2489 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="en" class="dark">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Silicon Valley M&A Advisory | Unlock Market Opportunities</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
 
-  /* Responsive Vimeo video section */
-#video-section {
-  text-align: center;
-  padding: 5rem 1rem;
-}
+  <meta charset="UTF-8" />
 
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  height: 0;
-  max-width: 900px;
-  margin: 2rem auto;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-.video-container:hover {
-  box-shadow: 0 0 25px rgba(0, 191, 255, 0.5);
-  transform: scale(1.01);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+  <title>Mac & Edward — M&A Advisory</title>
 
-/* ===== OUR LISTINGS VIDEO CAROUSEL ===== */
-#our-listings {
-  text-align: center;
-  padding: 6rem 1rem;
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
 
-#our-listings h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-.carousel {
-  position: relative;
-  max-width: 900px;
-  margin: 3rem auto;
-  overflow: hidden;
-  border-radius: 0;          /* remove rounded edges */
-  box-shadow: none;          /* remove dark box shadow */
-}
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
 
-.carousel-track {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
+  <style>
 
-.video-slide {
-  min-width: 100%;
-  transition: opacity 0.5s ease;
-}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* make video height responsive */
-.video-slide iframe {
-  width: 100%;
-  aspect-ratio: 16 / 9;      /* auto-calculates height responsively */
-  border: none;
-  display: block;
-  height: auto;              /* allow dynamic resizing */
-}
+ 
 
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,191,255,0.2);
-  border: none;
-  color: #fff;
-  font-size: 2rem;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-  border-radius: 50%;
-  backdrop-filter: blur(6px);
-  transition: background 0.3s;
-}
+    :root {
 
-.carousel-btn:hover {
-  background: rgba(0,191,255,0.5);
-}
+      --background: oklch(0.12 0.002 286);
 
-.carousel-btn.prev { left: 10px; }
-.carousel-btn.next { right: 10px; }
+      --foreground: oklch(0.95 0.003 85);
 
-  
-:root {
-  --primary: #00bfff;
-  --secondary: #8a2be2;
-  --bg-dark: #0b0f17;
-  --card-bg: rgba(255,255,255,0.06);
-  --text-light: #f4f7fb;
-  --shadow: 0 10px 25px rgba(0,0,0,0.3);
-}
+      --border: oklch(1 0 0 / 0.10);
 
-html { scroll-behavior:smooth; }
-body {
-  margin:0;
-  font-family:'Inter',sans-serif;
-  background:radial-gradient(circle at 25% 25%,#0e1423 0%,#090d14 100%);
-  color:var(--text-light);
-  overflow-x:hidden;
-  line-height:1.6;
-}
+      --muted-foreground: oklch(0.7 0.01 85);
 
-/* Navigation */
-nav {
-  position:fixed;top:0;left:0;width:100%;
-  background:rgba(15,20,30,0.8);
-  backdrop-filter:blur(12px);
-  z-index:1000;
-  box-shadow:var(--shadow);
-  transition:background 0.3s ease;
-}
-nav ul {
-  display:flex;
-  justify-content:center;
-  gap:2rem;
-  padding:1rem 0;
-  margin:0;
-  list-style:none;
-}
-nav ul li a {
-  font-weight:600;
-  color:var(--text-light);
-  transition:color 0.3s;
-}
-nav ul li a:hover { color:var(--primary); }
+      --accent-lime: #b7cd61;
 
-/* === Responsive Nav === */
-.nav-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
+      --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
 
-.logo {
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: var(--text-light);
-}
+      --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
 
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--text-light);
-  font-size: 1.8rem;
-  cursor: pointer;
-}
+      --max-w: 1440px;
 
-/* Default desktop nav (unchanged) */
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-  margin: 0;
-  padding: 1rem 0;
-}
+    }
 
-/* --- MOBILE STYLES --- */
-@media (max-width: 768px) {
-  .carousel {
-    margin: 2rem auto;
-    max-width: 100%;
-  }
+ 
 
-  .video-slide iframe {
-    aspect-ratio: 16 / 9;
-    height: auto;
-  }
+    html { scroll-behavior: smooth; }
 
-  .carousel-btn {
-    font-size: 1.5rem;
-    padding: 0.4rem 0.8rem;
-  }
+ 
 
+    body {
 
-  .nav-links {
-    display: none; /* hide menu by default */
-    flex-direction: column;
-    align-items: center;
-    background: rgba(10, 15, 25, 0.95);
-    position: absolute;
-    top: 60px; /* below navbar */
-    left: 0;
-    width: 100%;
-    padding: 1rem 0;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    z-index: 999;
-  }
+      font-family: var(--font-sans);
 
-  .nav-links.show {
-    display: flex; /* show menu when toggled */
-  }
+      background-color: #0f0f11;
 
-  .nav-links li a {
-    font-size: 1.2rem;
-    padding: 0.75rem 0;
-  }
-}
+      color: oklch(0.95 0.003 85);
 
-  
-/* Hero */
-header.hero {
-  min-height:90vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:0 1rem;
-  background:linear-gradient(180deg,rgba(15,30,50,0.6) 0%,rgba(5,10,20,0.95) 100%),
-             url('https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1950&q=80') center/cover;
-  position:relative;
-}
-header.hero h1 {
-  font-size:3rem;
-  font-weight:700;
-  background:linear-gradient(90deg,var(--primary),var(--secondary));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  opacity:0;
-  animation:fadeUp 1s forwards 0.3s;
-}
-header.hero p {
-  font-size:1.2rem;
-  opacity:0;
-  animation:fadeUp 1s forwards 0.6s;
-}
-@keyframes fadeUp { to{opacity:1;transform:translateY(0);} }
-.btn-primary {
-  margin-top:2rem;
-  padding:1rem 2rem;
-  background:linear-gradient(90deg,var(--primary),var(--secondary));
-  border:none;
-  color:#fff;
-  border-radius:8px;
-  font-weight:600;
-  cursor:pointer;
-  box-shadow:0 0 15px rgba(0,191,255,0.4);
-  transition:transform 0.3s, box-shadow 0.3s;
-}
-.btn-primary:hover {
-  transform:translateY(-3px) scale(1.02);
-  box-shadow:0 0 25px rgba(0,191,255,0.8);
-}
+      letter-spacing: -0.01em;
 
-/* Sections */
-section {
-  max-width:1100px;
-  margin:0 auto;
-  padding:6rem 1rem;
-  opacity:0;
-  transform:translateY(40px);
-  transition:all 1s ease-out;
-}
-section.visible { opacity:1; transform:translateY(0); }
-section h2 {
-  text-align:center;
-  font-size:2rem;
-  margin-bottom:1.5rem;
-  background:linear-gradient(90deg,var(--primary),var(--secondary));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-section p, section li { font-size:1.05rem; color:#ccd3e6; }
+      overflow-x: hidden;
 
-/* Card grid */
-.card-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:2rem;
-  margin-top:3rem;
-}
-.card {
-  background:var(--card-bg);
-  border-radius:12px;
-  padding:2rem;
-  box-shadow:0 5px 20px rgba(0,0,0,0.3);
-  transition:transform 0.4s, box-shadow 0.4s;
-  perspective:800px;
-}
-.card:hover {
-  transform:perspective(800px) rotateY(8deg) rotateX(4deg) scale(1.02);
-  box-shadow:0 8px 25px rgba(0,191,255,0.3);
-}
-.card .more-info {
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.5s ease;
-  color: #bcd2f5;
-  font-size: 0.95rem;
-  margin-top: 1rem;
-  line-height: 1.5;
-}
+      background-image:
 
-.card:hover .more-info {
-  opacity: 1;
-  max-height: 500px; /* large enough to show full text */
-}
+        radial-gradient(circle at top right, rgba(255,255,255,0.06), transparent 18%),
 
+        linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0));
 
-  
-/* Counters */
-.stats {
-  display:flex;
-  justify-content:space-around;
-  margin-top:3rem;
-  flex-wrap:wrap;
-  gap:2rem;
-}
-.counter {
-  font-size:2rem;
-  font-weight:700;
-  color:var(--primary);
-}
+    }
 
-/* CTA */
-.cta {
-  text-align:center;
-  padding:6rem 1rem;
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
-  color:#fff;
-}
-.cta h2 {
-  font-size: 2rem;
-  color: #f9fbff; /* bright white text */
-  -webkit-background-clip: unset;
-  -webkit-text-fill-color: unset;
-  background: none; /* remove gradient text background */
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); /* optional for better contrast */
-}
+ 
 
-.cta p {font-size:1.2rem;margin-top:1rem;}
-.cta .btn-primary {background:#fff;color:#000;box-shadow:none;}
-.cta .btn-primary:hover {background:var(--bg-dark);color:#fff;}
+    h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); }
 
-/* Footer */
-footer {
-  text-align:center;
-  padding:2rem 1rem;
-  color:#999;
-  background:#080c13;
-}
+ 
 
-/* Responsive */
-@media(max-width:768px){
-  header.hero h1{font-size:2.2rem;}
-  .stats{flex-direction:column;align-items:center;}
-}
-</style>
+    ::selection { background: rgba(183,205,97,0.28); color: white; }
+
+ 
+
+    a { text-decoration: none; color: inherit; }
+
+ 
+
+    img { display: block; max-width: 100%; }
+
+ 
+
+    /* ── NAV ── */
+
+    .nav-wrap {
+
+      position: fixed; inset-inline: 0; top: 0; z-index: 50;
+
+      padding: 12px 12px;
+
+    }
+
+    nav {
+
+      max-width: var(--max-w); margin-inline: auto;
+
+      border: 1px solid rgba(255,255,255,0.10);
+
+      background: rgba(0,0,0,0.55);
+
+      backdrop-filter: blur(20px);
+
+      -webkit-backdrop-filter: blur(20px);
+
+    }
+
+    .nav-inner {
+
+      display: flex; align-items: center; justify-content: space-between;
+
+      padding: 12px 24px;
+
+    }
+
+    .nav-logo {
+
+      display: flex; align-items: center; gap: 10px;
+
+      font-size: 11px; font-weight: 600; letter-spacing: 0.28em;
+
+      text-transform: uppercase; color: white;
+
+    }
+
+    .nav-dot {
+
+      display: inline-block; width: 10px; height: 10px;
+
+      border-radius: 50%; background: var(--accent-lime);
+
+      flex-shrink: 0;
+
+    }
+
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+
+    .nav-links a {
+
+      font-size: 11px; font-weight: 600; letter-spacing: 0.26em;
+
+      text-transform: uppercase; color: rgba(255,255,255,0.74);
+
+      transition: color 0.2s;
+
+    }
+
+    .nav-links a:hover { color: white; }
+
+    .nav-cta {
+
+      display: inline-flex; align-items: center; gap: 8px;
+
+      border: 1px solid white; background: white;
+
+      padding: 8px 16px;
+
+      font-size: 11px; font-weight: 600; letter-spacing: 0.24em;
+
+      text-transform: uppercase; color: black;
+
+      transition: background 0.2s, color 0.2s;
+
+    }
+
+    .nav-cta:hover { background: var(--accent-lime); color: black; }
+
+    .nav-cta svg { width: 14px; height: 14px; }
+
+ 
+
+    /* hamburger */
+
+    .nav-burger {
+
+      display: none; align-items: center; justify-content: center;
+
+      width: 44px; height: 44px;
+
+      border: 1px solid rgba(255,255,255,0.10); background: none;
+
+      color: white; cursor: pointer;
+
+    }
+
+    .nav-burger svg { width: 20px; height: 20px; }
+
+    .nav-mobile {
+
+      display: none; flex-direction: column; gap: 16px;
+
+      border-top: 1px solid rgba(255,255,255,0.10);
+
+      padding: 16px 24px;
+
+    }
+
+    .nav-mobile a {
+
+      font-size: 11px; font-weight: 600; letter-spacing: 0.22em;
+
+      text-transform: uppercase; color: rgba(255,255,255,0.74);
+
+    }
+
+    .nav-mobile.open { display: flex; }
+
+ 
+
+    @media (max-width: 767px) {
+
+      .nav-links { display: none; }
+
+      .nav-burger { display: inline-flex; }
+
+    }
+
+ 
+
+    /* ── SECTIONS ── */
+
+    .section-border { border-bottom: 1px solid rgba(255,255,255,0.08); }
+
+ 
+
+    /* ── HERO ── */
+
+    #top {
+
+      position: relative; min-height: 100svh;
+
+      background: black; padding-top: 112px;
+
+    }
+
+    .hero-bg {
+
+      position: absolute; inset: 0;
+
+    }
+
+    .hero-bg img {
+
+      width: 100%; height: 100%; object-fit: cover; opacity: 0.82;
+
+    }
+
+    .hero-overlay {
+
+      position: absolute; inset: 0;
+
+      background: radial-gradient(circle at 78% 36%, rgba(255,255,255,0.08), transparent 16%),
+
+                  linear-gradient(180deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.42) 38%, rgba(0,0,0,0.72) 100%);
+
+    }
+
+    .hero-inner {
+
+      position: relative;
+
+      max-width: var(--max-w); margin-inline: auto;
+
+      min-height: calc(100svh - 7rem);
+
+      display: flex; flex-direction: column; justify-content: space-between;
+
+      padding: 48px 40px 40px;
+
+      gap: 40px;
+
+    }
+
+    .hero-top {
+
+      display: grid; gap: 40px;
+
+    }
+
+    .hero-eyebrow {
+
+      font-size: 10px; font-weight: 700; letter-spacing: 0.34em;
+
+      text-transform: uppercase; color: var(--accent-lime);
+
+      margin-bottom: 16px;
+
+    }
+
+    .hero-sub {
+
+      font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.86);
+
+      max-width: 320px;
+
+    }
+
+    .hero-bottom {
+
+      display: grid; gap: 32px;
+
+    }
+
+    .hero-label {
+
+      font-size: 11px; font-weight: 600; letter-spacing: 0.34em;
+
+      text-transform: uppercase; color: rgba(255,255,255,0.55);
+
+      margin-bottom: 20px;
+
+    }
+
+    h1.hero-title {
+
+      font-size: clamp(3.2rem, 9vw, 7rem);
+
+      line-height: 0.92; font-weight: 500;
+
+      tracking: -0.06em; color: white;
+
+      letter-spacing: -0.06em;
+
+    }
+
+    .hero-rotating-wrap {
+
+      position: relative; display: inline-block;
+
+      width: 100%; overflow: hidden;
+
+      height: 1.05em; vertical-align: bottom;
+
+    }
+
+    .rotating-word {
+
+      position: absolute; left: 0;
+
+      font-weight: 700; color: var(--accent-lime);
+
+      font-size: 0.78em;
+
+      white-space: nowrap;
+
+      opacity: 0;
+
+      transform: translateY(100px);
+
+      transition: opacity 0.5s cubic-bezier(0.25,1,0.5,1),
+
+                  transform 0.5s cubic-bezier(0.25,1,0.5,1);
+
+    }
+
+    .rotating-word.active {
+
+      opacity: 1; transform: translateY(0);
+
+    }
+
+    .rotating-word.above {
+
+      opacity: 0; transform: translateY(-100px);
+
+    }
+
+    .hero-desc {
+
+      max-width: 420px; font-size: 14px; line-height: 1.7;
+
+      color: rgba(255,255,255,0.68);
+
+    }
+
+    .hero-actions {
+
+      display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px;
+
+    }
+
+    .btn-primary {
+
+      display: inline-flex; align-items: center; gap: 8px;
+
+      border: 1px solid white; background: white;
+
+      padding: 12px 20px;
+
+      font-size: 11px; font-weight: 600; letter-spacing: 0.22em;
+
+      text-transform: uppercase; color: black;
+
+      transition: background 0.2s;
+
+    }
+
+    .btn-primary:hover { background: var(--accent-lime); }
+
+    .btn-secondary {
+
+      display: inline-flex; align-items: center; gap: 8px;
+
+      border: 1px solid rgba(255,255,255,0.16); background: rgba(255,255,255,0.06);
+
+      padding: 12px 20px;
+
+      font-size: 11px; font-weight: 600; letter-spacing: 0.22em;
+
+      text-transform: uppercase; color: white;
+
+      transition: border-color 0.2s, background 0.2s;
+
+    }
+
+    .btn-secondary:hover {
+
+      border-color: rgba(255,255,255,0.28); background: rgba(255,255,255,0.10);
+
+    }
+
+    .btn-primary svg, .btn-secondary svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+ 
+
+    @media (min-width: 1024px) {
+
+      .hero-top { grid-template-columns: 1.1fr 0.9fr; align-items: start; }
+
+      .hero-sub-col { grid-column: 2; justify-self: end; }
+
+      .hero-bottom { grid-template-columns: 1.15fr 0.85fr; align-items: end; }
+
+      .hero-right { display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+
+      .hero-desc { margin-left: auto; }
+
+      .hero-actions { justify-content: flex-end; }
+
+    }
+
+ 
+
+    /* ── CONTAINER ── */
+
+    .container {
+
+      max-width: var(--max-w); margin-inline: auto;
+
+      padding-inline: 20px;
+
+    }
+
+    @media (min-width: 768px) { .container { padding-inline: 32px; } }
+
+    @media (min-width: 1024px) { .container { padding-inline: 40px; } }
+
+ 
+
+    .section-pad { padding-block: 72px; }
+
+    @media (min-width: 1024px) { .section-pad { padding-block: 96px; } }
+
+ 
+
+    /* ── VIDEO / PLATFORM ── */
+
+    #video-section { background: #050505; }
+
+    .platform-grid {
+
+      display: grid; gap: 32px;
+
+    }
+
+    @media (min-width: 1024px) {
+
+      .platform-grid { grid-template-columns: 0.55fr 1fr; }
+
+    }
+
+    .platform-heading { max-width: 420px; }
+
+    .eyebrow {
+
+      font-size: 11px; font-weight: 700; letter-spacing: 0.34em;
+
+      text-transform: uppercase; color: var(--accent-lime);
+
+      margin-bottom: 16px;
+
+    }
+
+    .eyebrow-muted {
+
+      font-size: 11px; font-weight: 700; letter-spacing: 0.34em;
+
+      text-transform: uppercase; color: rgba(255,255,255,0.42);
+
+      margin-bottom: 16px;
+
+    }
+
+    .section-title {
+
+      font-size: clamp(2rem, 4vw, 3rem);
+
+      line-height: 0.95; font-weight: 500;
+
+      letter-spacing: -0.05em; color: white;
+
+    }
+
+    .section-body {
+
+      font-size: 14px; line-height: 1.75;
+
+      color: rgba(255,255,255,0.64);
+
+    }
+
+    @media (min-width: 768px) { .section-body { font-size: 16px; } }
+
+ 
+
+    .video-card {
+
+      position: relative; overflow: hidden;
+
+      border: 1px solid rgba(255,255,255,0.10); background: black;
+
+      box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+
+    }
+
+    .video-card-inner {
+
+      position: relative; aspect-ratio: 16/9;
+
+    }
+
+    .video-card-inner img {
+
+      width: 100%; height: 100%; object-fit: cover; opacity: 0.7;
+
+    }
+
+    .video-card-overlay {
+
+      position: absolute; inset: 0;
+
+      background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.72) 100%);
+
+    }
+
+    .video-card-content {
+
+      position: absolute; inset: 0;
+
+      display: flex; flex-direction: column; justify-content: space-between;
+
+      padding: 24px;
+
+    }
+
+    @media (min-width: 768px) { .video-card-content { padding: 32px; } }
+
+    .video-card-bottom {
+
+      display: flex; flex-wrap: wrap; align-items: flex-end;
+
+      justify-content: space-between; gap: 16px;
+
+    }
+
+    .video-card-body {
+
+      max-width: 400px; font-size: 14px; line-height: 1.75;
+
+      color: rgba(255,255,255,0.74);
+
+    }
+
+    @media (min-width: 768px) { .video-card-body { font-size: 16px; } }
+
+ 
+
+    /* ── ADVANTAGE ── */
+
+    #why-work {
+
+      background: linear-gradient(180deg, #050505 0%, #090909 100%);
+
+    }
+
+    .advantage-grid {
+
+      display: grid; gap: 48px;
+
+    }
+
+    @media (min-width: 1024px) {
+
+      .advantage-grid { grid-template-columns: 0.55fr 1.45fr; }
+
+    }
+
+    .advantage-right {
+
+      display: grid; gap: 24px;
+
+      opacity: 0;
+
+      transform: translateX(40px);
+
+      transition: opacity 0.8s ease, transform 0.8s ease;
+
+    }
+
+    .advantage-right.visible { opacity: 1; transform: none; }
+
+    @media (min-width: 1024px) {
+
+      .advantage-right { grid-template-columns: 1.05fr 0.95fr; }
+
+    }
+
+ 
+
+    /* Accordion */
+
+    .accordion-strip {
+
+      display: flex; flex-direction: row; align-items: center;
+
+      justify-content: center; gap: 12px;
+
+      overflow-x: auto;
+
+    }
+
+    .accordion-panel {
+
+      position: relative; border-radius: 8px; overflow: hidden;
+
+      cursor: pointer; flex-shrink: 0;
+
+      width: 60px; height: 380px;
+
+      transition: width 0.7s cubic-bezier(0.25,1,0.5,1);
+
+    }
+
+    .accordion-panel.active { width: 300px; }
+
+    .accordion-panel img {
+
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+
+    }
+
+    .accordion-panel-overlay {
+
+      position: absolute; inset: 0; background: rgba(0,0,0,0.4);
+
+    }
+
+    .accordion-label {
+
+      position: absolute; left: 50%; bottom: 96px;
+
+      transform: translateX(-50%) rotate(90deg);
+
+      color: white; font-size: 13px; font-weight: 600;
+
+      white-space: nowrap;
+
+      transition: transform 0.3s, bottom 0.3s;
+
+    }
+
+    .accordion-panel.active .accordion-label {
+
+      bottom: 24px;
+
+      transform: translateX(-50%) rotate(0deg);
+
+      font-size: 14px;
+
+    }
+
+ 
+
+    .accordion-content-panel {
+
+      display: none; margin-top: 24px;
+
+      border: 1px solid rgba(255,255,255,0.10); background: #0a0a0a;
+
+      padding: 24px;
+
+    }
+
+    .accordion-content-panel.open { display: block; }
+
+    .accordion-content-panel .eyebrow { color: var(--accent-lime); }
+
+    .accordion-content-panel h3 {
+
+      font-size: 22px; font-weight: 500; letter-spacing: -0.04em;
+
+      color: white; margin-bottom: 16px; max-width: 600px;
+
+    }
+
+    .accordion-content-panel p {
+
+      font-size: 14px; line-height: 1.75; color: rgba(255,255,255,0.70);
+
+      max-width: 600px;
+
+    }
+
+    .accordion-close {
+
+      display: inline-flex; align-items: center; gap: 8px;
+
+      margin-top: 24px;
+
+      border: 1px solid rgba(255,255,255,0.20); background: rgba(255,255,255,0.06);
+
+      padding: 8px 16px;
+
+      font-size: 11px; font-weight: 700; letter-spacing: 0.22em;
+
+      text-transform: uppercase; color: white; cursor: pointer;
+
+      transition: border-color 0.2s, background 0.2s;
+
+    }
+
+    .accordion-close:hover { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.10); }
+
+ 
+
+    /* Stats */
+
+    .stats-grid {
+
+      display: grid; gap: 1px; background: rgba(255,255,255,0.10);
+
+    }
+
+    .stat-cell {
+
+      background: #0a0a0a; padding: 20px 24px;
+
+    }
+
+    .stat-value {
+
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+
+      font-weight: 500; letter-spacing: -0.04em; color: white;
+
+    }
+
+    .stat-label {
+
+      margin-top: 8px; font-size: 11px; letter-spacing: 0.24em;
+
+      text-transform: uppercase; color: rgba(255,255,255,0.52);
+
+      max-width: 18ch;
+
+    }
+
+ 
+
+    /* ── BUYERS / SELLERS ── */
+
+    #buyers { background: black; }
+
+    #sellers { background: #050505; }
+
+ 
+
+    .cards-header {
+
+      display: grid; gap: 24px; margin-bottom: 40px;
+
+    }
+
+    @media (min-width: 1024px) {
+
+      .cards-header { grid-template-columns: 0.8fr 1.2fr; align-items: end; }
+
+      .sellers-header { grid-template-columns: 0.95fr 1.05fr; }
+
+    }
+
+ 
+
+    .cards-grid {
+
+      display: grid; gap: 1px; background: rgba(255,255,255,0.10);
+
+      opacity: 0; transform: translateX(40px);
+
+      transition: opacity 0.8s ease, transform 0.8s ease;
+
+    }
+
+    .cards-grid.visible { opacity: 1; transform: none; }
+
+    @media (min-width: 768px) { .cards-grid { grid-template-columns: repeat(3, 1fr); } }
+
+ 
+
+    .card-item {
+
+      background: #080808; padding: 24px 28px;
+
+      transition: background 0.2s;
+
+    }
+
+    .card-item:hover { background: #0d0d0d; }
+
+    .card-num {
+
+      font-size: 10px; font-weight: 700; letter-spacing: 0.34em;
+
+      text-transform: uppercase; color: rgba(255,255,255,0.40);
+
+      margin-bottom: 32px;
+
+    }
+
+    .card-title {
+
+      font-size: 22px; font-weight: 500; letter-spacing: -0.03em; color: white;
+
+    }
+
+    .card-summary {
+
+      margin-top: 16px; font-size: 15px; line-height: 1.75;
+
+      color: rgba(255,255,255,0.74);
+
+    }
+
+    .card-detail {
+
+      margin-top: 32px; border-top: 1px solid rgba(255,255,255,0.10);
+
+      padding-top: 20px; font-size: 13px; line-height: 1.75;
+
+      color: rgba(255,255,255,0.54);
+
+      transition: color 0.2s;
+
+    }
+
+    .card-item:hover .card-detail { color: rgba(255,255,255,0.72); }
+
+ 
+
+    /* sellers banner */
+
+    .sellers-banner {
+
+      position: relative; overflow: hidden;
+
+      border: 1px solid rgba(255,255,255,0.10); background: #080808;
+
+      padding: 24px 32px;
+
+    }
+
+    .sellers-banner img {
+
+      position: absolute; inset: 0; width: 100%; height: 100%;
+
+      object-fit: cover; opacity: 0.35;
+
+    }
+
+    .sellers-banner-overlay {
+
+      position: absolute; inset: 0;
+
+      background: linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.5) 100%);
+
+    }
+
+    .sellers-banner-content { position: relative; z-index: 1; max-width: 420px; }
+
+    .sellers-grid {
+
+      display: grid; gap: 32px; margin-bottom: 32px;
+
+    }
+
+    @media (min-width: 1024px) {
+
+      .sellers-grid { grid-template-columns: 0.95fr 1.05fr; }
+
+    }
+
+ 
+
+    /* ── PROCESS STEPS ── */
+
+    #process { background: black; }
+
+    .step-block { position: relative; }
+
+    .step-header {
+
+      position: sticky; top: 0; z-index: 20;
+
+      background: black;
+
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+
+    }
+
+    .step-header-inner {
+
+      max-width: var(--max-w); margin-inline: auto;
+
+      padding: 20px 40px;
+
+    }
+
+    .step-header h2 {
+
+      font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 500;
+
+      line-height: 1; color: white;
+
+    }
+
+    .step-body { background: #0a0a0a; }
+
+    .step-body-inner {
+
+      max-width: var(--max-w); margin-inline: auto;
+
+      padding: 48px 40px;
+
+    }
+
+    .step-accent-bar {
+
+      border-left: 4px solid var(--accent-lime); padding-left: 24px;
+
+    }
+
+    .step-accent-bar .eyebrow { color: var(--accent-lime); }
+
+    .step-accent-bar h3 {
+
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+
+      font-weight: 500; letter-spacing: -0.04em; color: white;
+
+      margin-bottom: 16px;
+
+    }
+
+    .step-accent-bar p {
+
+      max-width: 600px; font-size: 15px; line-height: 1.75;
+
+      color: rgba(255,255,255,0.70);
+
+    }
+
+    .step-meta-grid {
+
+      display: grid; gap: 16px; margin-top: 24px;
+
+    }
+
+    @media (min-width: 768px) { .step-meta-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .step-meta-card {
+
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10);
+
+      padding: 16px;
+
+    }
+
+    .step-meta-label {
+
+      font-size: 11px; font-weight: 700; letter-spacing: 0.20em;
+
+      text-transform: uppercase; color: rgba(255,255,255,0.50);
+
+      margin-bottom: 8px;
+
+    }
+
+    .step-meta-text { font-size: 13px; color: rgba(255,255,255,0.80); }
+
+ 
+
+    /* ── LISTINGS ── */
+
+    #our-listings { background: #050505; }
+
+    .listings-header {
+
+      display: flex; flex-direction: column; gap: 24px;
+
+      margin-bottom: 40px;
+
+    }
+
+    @media (min-width: 1024px) {
+
+      .listings-header { flex-direction: row; align-items: flex-end; justify-content: space-between; }
+
+    }
+
+    .listings-scroll-btns { display: flex; gap: 12px; }
+
+    .scroll-btn {
+
+      display: inline-flex; align-items: center; justify-content: center;
+
+      width: 48px; height: 48px;
+
+      border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04);
+
+      color: white; cursor: pointer;
+
+      transition: border-color 0.2s, background 0.2s;
+
+    }
+
+    .scroll-btn:hover { border-color: rgba(255,255,255,0.22); background: rgba(255,255,255,0.08); }
+
+    .scroll-btn svg { width: 16px; height: 16px; }
+
+ 
+
+    .listings-track {
+
+      display: flex; gap: 24px;
+
+      overflow-x: auto; scroll-snap-type: x mandatory;
+
+      padding-bottom: 16px;
+
+      scrollbar-width: none;
+
+    }
+
+    .listings-track::-webkit-scrollbar { display: none; }
+
+ 
+
+    .listing-card {
+
+      flex-shrink: 0; min-width: 88%;
+
+      scroll-snap-align: start;
+
+      border: 1px solid rgba(255,255,255,0.10); background: black;
+
+      padding: 12px;
+
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+
+    }
+
+    @media (min-width: 768px) { .listing-card { min-width: 48%; } }
+
+    @media (min-width: 1280px) { .listing-card { min-width: 38%; } }
+
+ 
+
+    .listing-inner {
+
+      position: relative; aspect-ratio: 16/9;
+
+      display: flex; flex-direction: column; justify-content: space-between;
+
+      overflow: hidden;
+
+      border: 1px solid rgba(255,255,255,0.08);
+
+      background: linear-gradient(180deg, #131313 0%, #060606 100%);
+
+      padding: 20px 24px;
+
+    }
+
+    .listing-inner::before {
+
+      content: ''; position: absolute; inset: 0;
+
+      background: radial-gradient(circle at top right, rgba(183,205,97,0.12), transparent 22%);
+
+      pointer-events: none;
+
+    }
+
+    .listing-head {
+
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+
+    }
+
+    .listing-tag {
+
+      font-size: 10px; font-weight: 700; letter-spacing: 0.32em;
+
+      text-transform: uppercase; color: var(--accent-lime);
+
+    }
+
+    .listing-num {
+
+      font-size: 10px; letter-spacing: 0.30em; text-transform: uppercase;
+
+      color: rgba(255,255,255,0.34);
+
+    }
+
+    .listing-title {
+
+      font-size: clamp(1.4rem, 2vw, 1.75rem);
+
+      font-weight: 500; letter-spacing: -0.04em; color: white;
+
+      max-width: 16ch; line-height: 1.2;
+
+    }
+
+    .listing-desc {
+
+      margin-top: 12px; font-size: 13px; line-height: 1.75;
+
+      color: rgba(255,255,255,0.58); max-width: 400px;
+
+    }
+
+    .listing-link {
+
+      display: inline-flex; align-items: center; gap: 8px;
+
+      margin-top: 16px;
+
+      border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04);
+
+      padding: 12px 16px;
+
+      font-size: 11px; font-weight: 700; letter-spacing: 0.24em;
+
+      text-transform: uppercase; color: white;
+
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+
+    }
+
+    .listing-link:hover { border-color: white; background: white; color: black; }
+
+    .listing-link svg { width: 16px; height: 16px; }
+
+ 
+
+    /* ── CTA ── */
+
+    #cta-section {
+
+      position: relative; overflow: hidden;
+
+      background: black; border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    }
+
+    .cta-paths {
+
+      position: absolute; inset: 0; pointer-events: none; opacity: 0.15;
+
+    }
+
+    .cta-paths svg { width: 100%; height: 100%; }
+
+    .cta-inner {
+
+      position: relative; max-width: var(--max-w); margin-inline: auto;
+
+      padding: 80px 40px;
+
+    }
+
+    @media (min-width: 1024px) { .cta-inner { padding-block: 112px; } }
+
+    .cta-content {
+
+      display: flex; flex-direction: column; align-items: center;
+
+      gap: 32px; text-align: center;
+
+    }
+
+    .cta-eyebrow {
+
+      font-size: 11px; font-weight: 700; letter-spacing: 0.34em;
+
+      text-transform: uppercase; color: var(--accent-lime);
+
+      margin-bottom: 16px;
+
+    }
+
+    .cta-title {
+
+      font-size: clamp(2.2rem, 5vw, 4rem);
+
+      line-height: 0.95; font-weight: 500;
+
+      letter-spacing: -0.05em; color: white;
+
+      max-width: 800px;
+
+    }
+
+    .cta-desc {
+
+      max-width: 400px; font-size: 14px; line-height: 1.75;
+
+      color: rgba(255,255,255,0.70);
+
+    }
+
+    @media (min-width: 768px) { .cta-desc { font-size: 16px; } }
+
+ 
+
+    /* Shiny button */
+
+    @property --gradient-angle {
+
+      syntax: "<angle>"; initial-value: 0deg; inherits: false;
+
+    }
+
+    @property --gradient-angle-offset {
+
+      syntax: "<angle>"; initial-value: 0deg; inherits: false;
+
+    }
+
+    @property --gradient-percent {
+
+      syntax: "<percentage>"; initial-value: 5%; inherits: false;
+
+    }
+
+    @property --gradient-shine {
+
+      syntax: "<color>"; initial-value: white; inherits: false;
+
+    }
+
+    .shiny-cta {
+
+      --shiny-cta-bg: #ffffff;
+
+      --shiny-cta-fg: #000000;
+
+      --shiny-cta-highlight: #b7cd61;
+
+      --shiny-cta-highlight-subtle: #d4e89e;
+
+      --animation: gradient-angle linear infinite;
+
+      --duration: 3s;
+
+      --transition: 800ms cubic-bezier(0.25,1,0.5,1);
+
+      isolation: isolate; position: relative; overflow: hidden;
+
+      cursor: pointer; padding: 20px 40px;
+
+      font-family: var(--font-sans); font-size: 18px;
+
+      font-weight: 500; border-radius: 360px;
+
+      color: var(--shiny-cta-fg);
+
+      background: linear-gradient(var(--shiny-cta-bg), var(--shiny-cta-bg)) padding-box,
+
+        conic-gradient(
+
+          from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
+
+          transparent,
+
+          var(--shiny-cta-highlight) var(--gradient-percent),
+
+          var(--gradient-shine) calc(var(--gradient-percent) * 2),
+
+          var(--shiny-cta-highlight) calc(var(--gradient-percent) * 3),
+
+          transparent calc(var(--gradient-percent) * 4)
+
+        ) border-box;
+
+      border: 1px solid transparent;
+
+      box-shadow: inset 0 0 0 1px #f5f5f5;
+
+      transition: var(--transition);
+
+      transition-property: --gradient-angle-offset, --gradient-percent, --gradient-shine;
+
+      animation: var(--animation) var(--duration),
+
+                 var(--animation) calc(var(--duration) / 0.4) reverse paused;
+
+      animation-composition: add;
+
+      display: inline-flex; align-items: center; gap: 8px;
+
+    }
+
+    .shiny-cta:hover {
+
+      --gradient-percent: 20%;
+
+      --gradient-angle-offset: 95deg;
+
+      --gradient-shine: var(--shiny-cta-highlight-subtle);
+
+      animation-play-state: running;
+
+    }
+
+    @keyframes gradient-angle { to { --gradient-angle: 360deg; } }
+
+ 
+
+    /* ── CONTACT ── */
+
+    #contact { background: #050505; }
+
+    .contact-grid {
+
+      display: grid; gap: 1px; background: rgba(255,255,255,0.10);
+
+    }
+
+    @media (min-width: 1024px) {
+
+      .contact-grid { grid-template-columns: 0.9fr 1.1fr; }
+
+    }
+
+    .contact-cell { background: #080808; padding: 24px 32px; }
+
+    .contact-info-grid {
+
+      display: grid; gap: 32px;
+
+    }
+
+    @media (min-width: 768px) { .contact-info-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .contact-name {
+
+      font-size: 22px; font-weight: 500; letter-spacing: -0.03em; color: white;
+
+      margin-top: 16px;
+
+    }
+
+    .contact-role {
+
+      margin-top: 8px; font-size: 15px; color: rgba(255,255,255,0.70);
+
+    }
+
+    .contact-links { display: flex; flex-direction: column; gap: 16px; }
+
+    .contact-link-group { font-size: 13px; line-height: 1.75; color: rgba(255,255,255,0.70); }
+
+    @media (min-width: 768px) { .contact-link-group { font-size: 15px; } }
+
+    .contact-link-label { display: block; }
+
+    .contact-link-group a {
+
+      color: white; transition: color 0.2s;
+
+    }
+
+    .contact-link-group a:hover { color: var(--accent-lime); }
+
+ 
+
+    /* ── FOOTER ── */
+
+    footer {
+
+      border-top: 1px solid rgba(255,255,255,0.08);
+
+      background: black; padding: 32px 40px;
+
+    }
+
+    .footer-inner {
+
+      max-width: var(--max-w); margin-inline: auto;
+
+      display: flex; flex-direction: column; gap: 8px;
+
+    }
+
+    @media (min-width: 768px) {
+
+      .footer-inner { flex-direction: row; align-items: center; justify-content: space-between; }
+
+    }
+
+    footer p {
+
+      font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase;
+
+      color: rgba(255,255,255,0.36);
+
+    }
+
+ 
+
+    /* ── SCROLL REVEAL ── */
+
+    .reveal {
+
+      opacity: 0; transform: translateY(24px);
+
+      transition: opacity 0.7s ease, transform 0.7s ease;
+
+    }
+
+    .reveal.visible { opacity: 1; transform: none; }
+
+ 
+
+    /* ── MOBILE adjustments ── */
+
+    @media (max-width: 767px) {
+
+      .hero-inner { padding-inline: 20px; }
+
+      .step-header-inner, .step-body-inner { padding-inline: 20px; }
+
+    }
+
+  </style>
+
 </head>
+
 <body>
 
-<nav id="nav">
-  <div class="nav-container">
-    <div class="logo">Mac & Edward</div>
-    <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
-    <ul class="nav-links">
-      <li><a href="#why-work">Services</a></li>
-      <li><a href="#buyers">Buyers</a></li>
-      <li><a href="#sellers">Sellers</a></li>
-      <li><a href="#process">Process</a></li>
-      <li><a href="#our-listings">Listings</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+ 
+
+<!-- ════════════════ NAV ════════════════ -->
+
+<div class="nav-wrap">
+
+  <nav>
+
+    <div class="nav-inner">
+
+      <a href="#top" class="nav-logo">
+
+        <span class="nav-dot"></span>
+
+        Mac &amp; Edward
+
+      </a>
+
+      <button class="nav-burger" id="burger" aria-label="Toggle menu">
+
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+
+        </svg>
+
+      </button>
+
+      <div class="nav-links">
+
+        <a href="#why-work">Services</a>
+
+        <a href="#buyers">Buyers</a>
+
+        <a href="#sellers">Sellers</a>
+
+        <a href="#process">Process</a>
+
+        <a href="#our-listings">Listings</a>
+
+        <a href="#contact">Contact</a>
+
+        <a href="#contact" class="nav-cta">
+
+          Contact
+
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="nav-mobile" id="mobile-menu">
+
+      <a href="#why-work" class="mobile-link">Services</a>
+
+      <a href="#buyers" class="mobile-link">Buyers</a>
+
+      <a href="#sellers" class="mobile-link">Sellers</a>
+
+      <a href="#process" class="mobile-link">Process</a>
+
+      <a href="#our-listings" class="mobile-link">Listings</a>
+
+      <a href="#contact" class="mobile-link">Contact</a>
+
+    </div>
+
+  </nav>
+
+</div>
+
+ 
+
+<!-- ════════════════ HERO ════════════════ -->
+
+<section id="top" class="section-border">
+
+  <div class="hero-bg">
+
+    <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663574196859/J38qZm8hUqNR7ReijyNKXa/icomat-hero-carbon-ribbons-6qoCDvzni6bidhFqNhhcEB.webp" alt="Abstract carbon fiber ribbons" />
+
+    <div class="hero-overlay"></div>
+
   </div>
-</nav>
 
+  <div class="hero-inner">
 
-<header class="hero">
-  <h1>Unlock Market Opportunities &amp; Maximize Business Value</h1>
-  <p>Silicon Valley’s Premier M&amp;A Advisory Platform</p>
-  <button class="btn-primary" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
-    Schedule a Confidential Consultation
-  </button>
-</header>
+    <div class="hero-top">
 
-<section id="video-section">
-  <h2>The Platform</h2>
-  <div class="video-container">
-    <iframe 
-      id="promoVideo"
-      src="https://player.vimeo.com/video/1131569443?autoplay=1&loop=1&muted=0&background=0"
-      frameborder="0"
-      allow="autoplay; fullscreen; picture-in-picture"
-      allowfullscreen
-      title="US_Business_Acquisition_Platform">
-    </iframe>
+      <div><!-- spacer --></div>
+
+      <div class="hero-sub-col">
+
+        <p class="hero-eyebrow">Silicon Valley M&amp;A Advisory</p>
+
+        <p class="hero-sub">Access pre-market opportunities, connect with qualified buyers, and move through acquisitions with a more deliberate operating system.</p>
+
+      </div>
+
+    </div>
+
+    <div class="hero-bottom">
+
+      <div>
+
+        <p class="hero-label">Engineer your next transaction</p>
+
+        <h1 class="hero-title">
+
+          <span>Unlock </span>
+
+          <span class="hero-rotating-wrap" id="rotating-wrap" aria-live="polite"></span>
+
+          <span> &amp; Maximize Business Value</span>
+
+        </h1>
+
+      </div>
+
+      <div class="hero-right">
+
+        <p class="hero-desc">Precision-led advisory for buyers, sellers, and founder-led transactions that require discretion, access, and sharper execution.</p>
+
+        <div class="hero-actions">
+
+          <a href="#contact" class="btn-primary">
+
+            Schedule a confidential consultation
+
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+
+          </a>
+
+          <a href="#video-section" class="btn-secondary">
+
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+
+            Watch platform overview
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
+
 </section>
 
+ 
 
-  
-<main>
-  <section id="why-work">
-    <h2>The Plug</h2>
-    <p>Gain early visibility into off-market opportunities through a trusted nationwide network, acting before listings go public. Our proprietary research and intelligence give you unmatched deal access and decision power.</p>
-    <div class="stats">
-      <div><div class="counter" data-target="7285">0</div><p>Listings Analyzed Weekly</p></div>
-      <div><div class="counter" data-target="888">0</div><p>IBBA Registered Advisors</p></div>
-      <div><div class="counter" data-target="100">0</div><p>Pre-Market Deals Sourced</p></div>
-      <div><div class="counter" data-target="76000">0</div><p>Active Listings Sourced</p></div><
-      <div><div class="counter" data-target="34000">0</div><p>Buyers</p></div><
-    </div>
-  </section>
+<!-- ════════════════ VIDEO / PLATFORM ════════════════ -->
 
-<section id="buyers">
-  <h2>For Buyers</h2>
-  <div class="card-grid">
-    <div class="card">
-      <h3>Exclusive Access</h3>
-      <p>Act on deals before they reach the open market.</p>
-      <div class="more-info">
-        <p>Gain priority access to listings before they become public. Our team aggregates nationwide deal flow and alerts you to off-market opportunities first.</p>
+<section id="video-section" class="section-border section-pad">
+
+  <div class="container">
+
+    <div class="platform-grid">
+
+      <div class="platform-heading reveal">
+
+        <p class="eyebrow">The Platform</p>
+
+        <h2 class="section-title">A transaction engine built around clarity, discretion, and speed.</h2>
+
       </div>
+
+      <div class="reveal" style="transition-delay:0.15s">
+
+        <div class="video-card">
+
+          <div class="video-card-inner">
+
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663574196859/J38qZm8hUqNR7ReijyNKXa/icomat-process-flow-ArVucooonkxaQ4VkhM3GmJ.webp" alt="Platform overview" />
+
+            <div class="video-card-overlay"></div>
+
+            <div class="video-card-content">
+
+              <p class="eyebrow" style="margin-bottom:0">Platform overview</p>
+
+              <div class="video-card-bottom">
+
+                <p class="video-card-body">Watch the original platform presentation in a separate window without the friction of an embedded player error.</p>
+
+                <a href="https://vimeo.com/1131569443" target="_blank" rel="noreferrer" class="btn-primary">
+
+                  Watch video
+
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+
+                </a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <p class="section-body" style="margin-top:20px">A concise platform overview that introduces the operating model, the quality of opportunity flow, and the disciplined execution standards behind each engagement.</p>
+
+      </div>
+
     </div>
 
-    <div class="card">
-      <h3>Targeted Matching</h3>
-      <p>We filter thousands of listings to your exact acquisition provisions.</p>
-      <div class="more-info">
-        <p>We leverage your buy-box criteria to pinpoint businesses that align perfectly with your investment thesis, ensuring precision and efficiency.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>Strategic Insights</h3>
-      <p>Data-driven intelligence to support negotiation and valuation.</p>
-      <div class="more-info">
-        <p>Our research capabilities provide valuation insights, comps, and acquisition trend data to strengthen your decision-making at every step.</p>
-      </div>
-    </div>
   </div>
+
 </section>
 
+ 
 
-  <section id="sellers">
-  <h2>For Sellers</h2>
-  <div class="card-grid">
-    <div class="card">
-      <h3>Qualified Buyers</h3>
-      <p>Connect with pre-vetted, financially capable acquirers.</p>
-      <div class="more-info">
-        <p>Our buyer network includes private equity firms, holdcos, and strategic buyers with proven acquisition track records and committed capital.</p>
+<!-- ════════════════ STRATEGIC ADVANTAGE ════════════════ -->
+
+<section id="why-work" class="section-border section-pad">
+
+  <div class="container">
+
+    <div class="advantage-grid">
+
+      <div class="reveal">
+
+        <p class="eyebrow-muted">Strategic advantage</p>
+
+        <h2 class="section-title" style="max-width:360px;margin-bottom:20px">The plug into early-market opportunity flow.</h2>
+
+        <p class="section-body" style="max-width:360px">Built on research coverage, network reach, and disciplined filtering, the platform is designed to surface meaningful opportunities before they become obvious to the broader market.</p>
+
       </div>
+
+      <div class="advantage-right" id="advantage-right">
+
+        <!-- Accordion + stats stacked on mobile, side-by-side on lg -->
+
+        <div>
+
+          <div class="accordion-strip" id="accordion-strip">
+
+            <!-- Panels injected by JS -->
+
+          </div>
+
+          <div id="accordion-content-area"></div>
+
+        </div>
+
+        <div class="stats-grid" id="stats-grid"></div>
+
+      </div>
+
     </div>
 
-    <div class="card">
-      <h3>Confidential Marketing</h3>
-      <p>Discreet outreach ensures operational and reputational safety.</p>
-      <div class="more-info">
-        <p>We conduct silent outreach to high-fit buyers using NDAs and confidential memorandums, preserving your company’s reputation and stability.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>Value Optimization</h3>
-      <p>Leverage analytics to achieve top valuation and terms.</p>
-      <div class="more-info">
-        <p>Through data-backed benchmarking and negotiation insights, we ensure your exit achieves not only the best valuation but optimal structure and timing.</p>
-      </div>
-    </div>
   </div>
+
 </section>
 
+ 
 
-  <section id="process">
-    <h2>The Process</h2>
-    <ol>
-      <li>Provide us your Buy-Box</li>
-      <li>Discovery & Criteria Assessment</li>
-      <li>Data-Driven Sourcing</li>
-      <li>Proprietary Filtering</li>
-      <li>Confidential Outreach</li>
-      <li>Negotiation & Closing Support (Optional)</li>
-    </ol>
-  </section>
+<!-- ════════════════ BUYERS ════════════════ -->
 
+<section id="buyers" class="section-border section-pad">
 
-<section id="our-listings">
-  <h2>Our Listings</h2>
-  <p style="text-align:center;max-width:700px;margin:0 auto 2rem;">
-    Explore a curated showcase of active and recently closed opportunities from across the U.S. — representing strategic acquisitions, private equity roll-ups, and founder-led exits.
-  </p>
+  <div class="container">
 
-  <div class="carousel">
-    <button class="carousel-btn prev">‹</button>
+    <div class="cards-header reveal">
 
-    <div class="carousel-track">
-      <div class="video-slide active">
-        <iframe 
-          src="https://player.vimeo.com/video/1131714615?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-          frameborder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen
-          title="Technology Firm Acquisition">
-        </iframe>
+      <div>
+
+        <p class="eyebrow">For Buyers</p>
+
+        <h2 class="section-title" style="max-width:360px">Targeted access without wasted motion.</h2>
+
       </div>
 
-      <div class="video-slide">
-        <iframe 
-          src="https://player.vimeo.com/video/1131707905?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-          frameborder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen
-          title="Healthcare Roll-Up Opportunity">
-        </iframe>
-      </div>
+      <p class="section-body" style="max-width:640px">Buyers gain earlier visibility, stronger filtering, and more context before serious time is committed to outreach, evaluation, and negotiation.</p>
 
-      <div class="video-slide">
-        <iframe 
-          src="https://player.vimeo.com/video/1131715052?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-          frameborder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen
-          title="Manufacturing Exit Showcase">
-        </iframe>
-      </div>
+    </div>
 
-     <div class="video-slide">
-        <iframe 
-          src="https://player.vimeo.com/video/1131715331?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-          frameborder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen
-          title="Manufacturing Exit Showcase">
-        </iframe>
-      </div>
+    <div class="cards-grid" id="buyers-cards"></div>
+
   </div>
-    
-    <button class="carousel-btn next">›</button>
-  </div>
+
 </section>
 
+ 
 
-  
-  <section class="cta">
-    <h2>Ready to Unlock Your Next Opportunity?</h2>
-    <p>Access pre-market deals, maximize your business value, and gain insights that put you ahead.</p>
-    <button class="btn-primary" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Get Started</button>
-  </section>
+<!-- ════════════════ SELLERS ════════════════ -->
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p><strong>Mac & Edward</strong><br>
-       Mac Edward R. Paulino, MBA<br>
-       📧 <a href="mailto:macedward.paulino@gmail.com">macedward.paulino@gmail.com</a><br>
-       📞 +1 510.220.7730<br>
-       🌐 <a href="https://www.linkedin.com/in/mac-edward-paulino-mba-076368198/" target="_blank">LinkedIn Profile</a></p>
-  </section>
-</main>
+<section id="sellers" class="section-border section-pad">
+
+  <div class="container">
+
+    <div class="sellers-grid">
+
+      <div class="sellers-banner reveal">
+
+        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663574196859/J38qZm8hUqNR7ReijyNKXa/icomat-process-flow-ArVucooonkxaQ4VkhM3GmJ.webp" alt="Process flow" />
+
+        <div class="sellers-banner-overlay"></div>
+
+        <div class="sellers-banner-content">
+
+          <p class="eyebrow">For Sellers</p>
+
+          <h2 class="section-title">A more controlled route to buyer competition and transaction value.</h2>
+
+        </div>
+
+      </div>
+
+      <div class="cards-grid" id="sellers-cards"></div>
+
+    </div>
+
+  </div>
+
+</section>
+
+ 
+
+<!-- ════════════════ PROCESS ════════════════ -->
+
+<section id="process" class="section-border">
+
+  <div id="process-steps"></div>
+
+</section>
+
+ 
+
+<!-- ════════════════ LISTINGS ════════════════ -->
+
+<section id="our-listings" class="section-border section-pad">
+
+  <div class="container">
+
+    <div class="listings-header">
+
+      <div class="reveal">
+
+        <p class="eyebrow">Our Listings</p>
+
+        <h2 class="section-title" style="max-width:700px">A curated view into active and recently closed opportunities.</h2>
+
+      </div>
+
+      <div class="listings-scroll-btns">
+
+        <button class="scroll-btn" id="prev-btn" aria-label="Previous listing">
+
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+
+        </button>
+
+        <button class="scroll-btn" id="next-btn" aria-label="Next listing">
+
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+
+        </button>
+
+      </div>
+
+    </div>
+
+    <p class="section-body reveal" style="margin-bottom:32px;max-width:800px">Explore a curated showcase of active and recently closed opportunities from across the U.S., spanning strategic acquisitions, private equity roll-ups, and founder-led exits.</p>
+
+    <div class="listings-track" id="listings-track"></div>
+
+  </div>
+
+</section>
+
+ 
+
+<!-- ════════════════ CTA ════════════════ -->
+
+<section id="cta-section">
+
+  <div class="cta-paths">
+
+    <svg viewBox="0 0 696 316" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+      <path d="M-380 -189C-380 -189 -312 216 152 343C616 470 684 875 684 875" stroke="white" stroke-width="0.5" stroke-opacity="0.15"/>
+
+      <path d="M-340 -140C-340 -140 -275 255 172 382C620 509 694 870 694 870" stroke="white" stroke-width="0.8" stroke-opacity="0.1"/>
+
+      <path d="M-300 -90C-300 -90 -240 290 192 420C624 550 700 865 700 865" stroke="white" stroke-width="1" stroke-opacity="0.07"/>
+
+    </svg>
+
+  </div>
+
+  <div class="cta-inner">
+
+    <div class="cta-content reveal">
+
+      <div>
+
+        <p class="cta-eyebrow">Ready to unlock your next opportunity?</p>
+
+        <h2 class="cta-title">Ready to unlock your next opportunity?</h2>
+
+      </div>
+
+      <div style="display:flex;flex-direction:column;align-items:center;gap:20px">
+
+        <p class="cta-desc">If you are evaluating acquisitions or preparing for a confidential exit, the next step is a direct conversation around objectives, fit, and timing.</p>
+
+        <a href="#contact" class="shiny-cta">
+
+          Get started
+
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+ 
+
+<!-- ════════════════ CONTACT ════════════════ -->
+
+<section id="contact" class="section-pad">
+
+  <div class="container">
+
+    <div class="contact-grid">
+
+      <div class="contact-cell reveal">
+
+        <p class="eyebrow">Contact</p>
+
+        <h2 class="section-title" style="max-width:360px">Start a confidential conversation.</h2>
+
+      </div>
+
+      <div class="contact-cell reveal" style="transition-delay:0.15s">
+
+        <div class="contact-info-grid">
+
+          <div>
+
+            <p class="eyebrow-muted" style="margin-bottom:0;font-size:10px">Advisory</p>
+
+            <p class="contact-name">Mac &amp; Edward</p>
+
+            <p class="contact-role">Mac Edward R. Paulino, MBA</p>
+
+          </div>
+
+          <div class="contact-links">
+
+            <div class="contact-link-group">
+
+              <span class="contact-link-label">Email</span>
+
+              <a href="mailto:macedward.paulino@gmail.com">macedward.paulino@gmail.com</a>
+
+            </div>
+
+            <div class="contact-link-group">
+
+              <span class="contact-link-label">Phone</span>
+
+              <a href="tel:+15102207730">+1 510.220.7730</a>
+
+            </div>
+
+            <div class="contact-link-group">
+
+              <span class="contact-link-label">LinkedIn</span>
+
+              <a href="https://www.linkedin.com/in/mac-edward-paulino-mba-076368198/" target="_blank" rel="noreferrer">View profile</a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+ 
+
+<!-- ════════════════ FOOTER ════════════════ -->
 
 <footer>
-  &copy; 2025 Mac & Edward. All rights reserved.
+
+  <div class="footer-inner">
+
+    <p>© 2025 Mac &amp; Edward. All rights reserved.</p>
+
+    <p>Confidential advisory for buyers and sellers.</p>
+
+  </div>
+
 </footer>
 
-<script>
-// Scroll fade-in
-const sections=document.querySelectorAll('section');
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
-},{threshold:0.15});
-sections.forEach(s=>observer.observe(s));
+ 
 
-// Counters
-const counters=document.querySelectorAll('.counter');
-const runCounter=(el)=>{
-  const target=+el.dataset.target;
-  const step=Math.ceil(target/100);
-  let count=0;
-  const update=()=>{count+=step;el.textContent=count>target?target:count;if(count<target)requestAnimationFrame(update);}
-  update();
-};
-const counterObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){runCounter(e.target);counterObs.unobserve(e.target);}
+<script>
+
+// ── DATA ──
+
+const storyTabs = [
+
+  { id:"plug", label:"The Plug", eyebrow:"Exclusive deal flow", title:"Unlocking visibility before the market sees it.", body:"Gain early visibility into off-market opportunities through a trusted nationwide network, acting before listings go public. Our proprietary research and intelligence give you unmatched deal access and decision power." },
+
+  { id:"buyers", label:"For Buyers", eyebrow:"Precision sourcing", title:"A tighter path from criteria to qualified opportunity.", body:"We filter thousands of listings against your acquisition criteria and surface only the opportunities that map to your buy-box, valuation approach, and operational goals." },
+
+  { id:"sellers", label:"For Sellers", eyebrow:"Confidential execution", title:"Carefully staged outreach built to protect value.", body:"From silent market testing to qualified buyer conversations, the process is designed to safeguard confidentiality while strengthening leverage, timing, and transaction quality." },
+
+  { id:"process", label:"Process", eyebrow:"Structured workflow", title:"One operating rhythm from discovery to close.", body:"The workflow is deliberate: understand the mandate, source intelligently, filter rigorously, contact discreetly, and support negotiations when needed. The experience should feel systematic, not improvised." },
+
+];
+
+const stats = [
+
+  { value:"7,285", label:"Listings analyzed weekly" },
+
+  { value:"888", label:"IBBA registered advisors" },
+
+  { value:"100+", label:"Pre-market deals sourced" },
+
+  { value:"76,000", label:"Active listings sourced" },
+
+  { value:"34,000", label:"Buyers in network" },
+
+];
+
+const buyerCards = [
+
+  { title:"Exclusive Access", summary:"Act on deals before they reach the open market.", detail:"Gain priority access to listings before they become public. Our team aggregates nationwide deal flow and alerts you to off-market opportunities first." },
+
+  { title:"Targeted Matching", summary:"We filter thousands of listings to your exact acquisition provisions.", detail:"We leverage your buy-box criteria to pinpoint businesses that align with your investment thesis, so your attention stays on high-fit targets instead of noise." },
+
+  { title:"Strategic Insights", summary:"Data-driven intelligence to support negotiation and valuation.", detail:"Research support, comparable analysis, and acquisition trend insight sharpen your negotiating position at every stage of evaluation." },
+
+];
+
+const sellerCards = [
+
+  { title:"Qualified Buyers", summary:"Connect with pre-vetted, financially capable acquirers.", detail:"The buyer network includes private equity firms, holdcos, and strategic acquirers with credible operating histories and committed capital." },
+
+  { title:"Confidential Marketing", summary:"Discreet outreach ensures operational and reputational safety.", detail:"Silent outreach, NDAs, and carefully controlled information flow help preserve business stability while serious buyers are evaluated." },
+
+  { title:"Value Optimization", summary:"Leverage analytics to achieve top valuation and terms.", detail:"Benchmarking, market intelligence, and sharper process design help maximize not only valuation, but also structure, timing, and certainty." },
+
+];
+
+const processSteps = [
+
+  "Provide us your Buy-Box",
+
+  "Discovery & Criteria Assessment",
+
+  "Data-Driven Sourcing",
+
+  "Proprietary Filtering",
+
+  "Confidential Outreach",
+
+  "Negotiation & Closing Support (Optional)",
+
+];
+
+const heroRotatingWords = ["Market Opportunities","Buyer Networks","Deal Flow","Transaction Value","Strategic Exits","Competitive Advantage"];
+
+const listingVideos = [
+
+  { title:"Technology Firm Acquisition", href:"https://vimeo.com/1131714615", tag:"Technology" },
+
+  { title:"Healthcare Roll-Up Opportunity", href:"https://vimeo.com/1131707905", tag:"Healthcare" },
+
+  { title:"Manufacturing Exit Showcase", href:"https://vimeo.com/1131715052", tag:"Manufacturing" },
+
+  { title:"Strategic Exit Overview", href:"https://vimeo.com/1131715331", tag:"Strategic" },
+
+];
+
+const advantageImg = "https://d2xsxph8kpxj0f.cloudfront.net/310519663574196859/J38qZm8hUqNR7ReijyNKXa/icomat-advantage-structure-LjWqTHadf7CwsJ4xJCit8Y.webp";
+
+ 
+
+// ── HERO ROTATING WORDS ──
+
+(function(){
+
+  const wrap = document.getElementById('rotating-wrap');
+
+  heroRotatingWords.forEach((word, i) => {
+
+    const span = document.createElement('span');
+
+    span.className = 'rotating-word' + (i === 0 ? ' active' : '');
+
+    span.textContent = word;
+
+    wrap.appendChild(span);
+
   });
-},{threshold:0.4});
-counters.forEach(c=>counterObs.observe(c));
-</script>
 
-  <script src="https://player.vimeo.com/api/player.js"></script>
-<script>
-  const iframe = document.getElementById('promoVideo');
-  const player = new Vimeo.Player(iframe);
+  let idx = 0;
 
-  // When the video finishes once, mute it for the next loops
-  player.on('ended', function() {
-    player.setVolume(0);
-    player.play(); // start the loop again muted
-  });
-</script>
+  setInterval(() => {
 
+    const words = wrap.querySelectorAll('.rotating-word');
 
-<script src="https://player.vimeo.com/api/player.js"></script>
-<script>
-  const listingIframes = document.querySelectorAll('#our-listings .video-slide iframe');
-  const listingPlayers = Array.from(listingIframes).map(i => new Vimeo.Player(i));
+    words[idx].classList.remove('active');
 
-  const track = document.querySelector('#our-listings .carousel-track');
-  const nextBtn = document.querySelector('#our-listings .carousel-btn.next');
-  const prevBtn = document.querySelector('#our-listings .carousel-btn.prev');
-  let currentIndex = 0;
+    words[idx].classList.add('above');
 
-  function updateCarousel(index) {
-    const slideWidth = listingIframes[0].clientWidth;
-    track.style.transform = `translateX(-${slideWidth * index}px)`;
+    idx = (idx + 1) % words.length;
 
-    // Pause all other videos except active
-    listingPlayers.forEach((p, i) => {
-      if (i === index) p.play();
-      else p.pause();
+    words[idx].classList.remove('above');
+
+    words[idx].classList.add('active');
+
+  }, 2200);
+
+})();
+
+ 
+
+// ── NAV BURGER ──
+
+document.getElementById('burger').addEventListener('click', () => {
+
+  const m = document.getElementById('mobile-menu');
+
+  m.classList.toggle('open');
+
+});
+
+document.querySelectorAll('.mobile-link').forEach(l => {
+
+  l.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open'));
+
+});
+
+ 
+
+// ── ACCORDION ──
+
+(function(){
+
+  const strip = document.getElementById('accordion-strip');
+
+  const contentArea = document.getElementById('accordion-content-area');
+
+  let activeIdx = 0;
+
+  let openIdx = null;
+
+ 
+
+  storyTabs.forEach((tab, i) => {
+
+    const panel = document.createElement('div');
+
+    panel.className = 'accordion-panel' + (i === 0 ? ' active' : '');
+
+    panel.innerHTML = `
+
+      <img src="${advantageImg}" alt="${tab.label}" />
+
+      <div class="accordion-panel-overlay"></div>
+
+      <span class="accordion-label">${tab.label}</span>
+
+    `;
+
+    panel.addEventListener('mouseenter', () => {
+
+      strip.querySelectorAll('.accordion-panel').forEach(p => p.classList.remove('active'));
+
+      panel.classList.add('active');
+
+      activeIdx = i;
+
     });
-  }
 
-  nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % listingIframes.length;
-    updateCarousel(currentIndex);
+    panel.addEventListener('click', () => {
+
+      if (openIdx === i) {
+
+        openIdx = null;
+
+        contentArea.innerHTML = '';
+
+      } else {
+
+        openIdx = i;
+
+        contentArea.innerHTML = `
+
+          <div class="accordion-content-panel open">
+
+            <p class="eyebrow">${tab.eyebrow}</p>
+
+            <h3>${tab.title}</h3>
+
+            <p>${tab.body}</p>
+
+            <button class="accordion-close" id="acc-close">Close</button>
+
+          </div>
+
+        `;
+
+        document.getElementById('acc-close').addEventListener('click', () => {
+
+          openIdx = null;
+
+          contentArea.innerHTML = '';
+
+        });
+
+      }
+
+    });
+
+    strip.appendChild(panel);
+
   });
 
-  prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + listingIframes.length) % listingIframes.length;
-    updateCarousel(currentIndex);
+})();
+
+ 
+
+// ── STATS ──
+
+(function(){
+
+  const grid = document.getElementById('stats-grid');
+
+  stats.forEach(s => {
+
+    const cell = document.createElement('div');
+
+    cell.className = 'stat-cell';
+
+    cell.innerHTML = `<p class="stat-value">${s.value}</p><p class="stat-label">${s.label}</p>`;
+
+    grid.appendChild(cell);
+
   });
+
+})();
+
+ 
+
+// ── BUYER CARDS ──
+
+(function(){
+
+  const grid = document.getElementById('buyers-cards');
+
+  buyerCards.forEach((card, i) => {
+
+    const el = document.createElement('article');
+
+    el.className = 'card-item';
+
+    el.innerHTML = `
+
+      <p class="card-num">0${i+1}</p>
+
+      <h3 class="card-title">${card.title}</h3>
+
+      <p class="card-summary">${card.summary}</p>
+
+      <p class="card-detail">${card.detail}</p>
+
+    `;
+
+    grid.appendChild(el);
+
+  });
+
+})();
+
+ 
+
+// ── SELLER CARDS ──
+
+(function(){
+
+  const grid = document.getElementById('sellers-cards');
+
+  sellerCards.forEach((card, i) => {
+
+    const el = document.createElement('article');
+
+    el.className = 'card-item';
+
+    el.innerHTML = `
+
+      <p class="card-num">0${i+1}</p>
+
+      <h3 class="card-title">${card.title}</h3>
+
+      <p class="card-summary">${card.summary}</p>
+
+      <p class="card-detail">${card.detail}</p>
+
+    `;
+
+    grid.appendChild(el);
+
+  });
+
+})();
+
+ 
+
+// ── PROCESS STEPS ──
+
+(function(){
+
+  const container = document.getElementById('process-steps');
+
+  processSteps.forEach((step, i) => {
+
+    const block = document.createElement('div');
+
+    block.className = 'step-block';
+
+    block.innerHTML = `
+
+      <div class="step-header">
+
+        <div class="step-header-inner">
+
+          <h2>Step ${String(i+1).padStart(2,'0')}: ${step}</h2>
+
+        </div>
+
+      </div>
+
+      <div class="step-body">
+
+        <div class="step-body-inner">
+
+          <div class="step-accent-bar">
+
+            <p class="eyebrow">Process Step ${String(i+1).padStart(2,'0')}</p>
+
+            <h3>${step}</h3>
+
+            <p>This step is part of our structured workflow designed to reduce noise, improve fit, and maintain discretion throughout the engagement.</p>
+
+          </div>
+
+          <div class="step-meta-grid">
+
+            <div class="step-meta-card">
+
+              <p class="step-meta-label">Key Focus</p>
+
+              <p class="step-meta-text">Ensure clarity and alignment on objectives and expectations.</p>
+
+            </div>
+
+            <div class="step-meta-card">
+
+              <p class="step-meta-label">Outcome</p>
+
+              <p class="step-meta-text">Move forward with confidence and strategic direction.</p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    `;
+
+    container.appendChild(block);
+
+  });
+
+})();
+
+ 
+
+// ── LISTINGS ──
+
+(function(){
+
+  const track = document.getElementById('listings-track');
+
+  listingVideos.forEach((v, i) => {
+
+    const card = document.createElement('article');
+
+    card.className = 'listing-card';
+
+    card.setAttribute('data-slide', 'true');
+
+    card.innerHTML = `
+
+      <div class="listing-inner">
+
+        <div class="listing-head">
+
+          <span class="listing-tag">${v.tag}</span>
+
+          <span class="listing-num">0${i+1}</span>
+
+        </div>
+
+        <div>
+
+          <h3 class="listing-title">${v.title}</h3>
+
+          <p class="listing-desc">View the original showcase video in a separate window.</p>
+
+          <a href="${v.href}" target="_blank" rel="noreferrer" class="listing-link">
+
+            Watch listing
+
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    `;
+
+    track.appendChild(card);
+
+  });
+
+ 
+
+  document.getElementById('prev-btn').addEventListener('click', () => {
+
+    const card = track.querySelector('[data-slide]');
+
+    const amount = card ? card.offsetWidth + 24 : 420;
+
+    track.scrollBy({ left: -amount, behavior: 'smooth' });
+
+  });
+
+  document.getElementById('next-btn').addEventListener('click', () => {
+
+    const card = track.querySelector('[data-slide]');
+
+    const amount = card ? card.offsetWidth + 24 : 420;
+
+    track.scrollBy({ left: amount, behavior: 'smooth' });
+
+  });
+
+})();
+
+ 
+
+// ── SCROLL REVEAL ──
+
+(function(){
+
+  const obs = new IntersectionObserver((entries) => {
+
+    entries.forEach(e => {
+
+      if (e.isIntersecting) {
+
+        e.target.classList.add('visible');
+
+        obs.unobserve(e.target);
+
+      }
+
+    });
+
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal, .cards-grid, .advantage-right').forEach(el => obs.observe(el));
+
+})();
+
 </script>
-<script>
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
 
-  menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-  });
-
-  // Optional: close menu when a link is clicked
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => navLinks.classList.remove('show'));
-  });
-</script>
-          
-  
 </body>
+
 </html>
